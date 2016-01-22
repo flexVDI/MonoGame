@@ -718,8 +718,10 @@ namespace Microsoft.Xna.Framework.Graphics
             // In XNA 4, because of hardware limitations on Xbox, when
             // a render target doesn't have PreserveContents as its usage
             // it is cleared before being rendered to.
+#if !MONOMAC
             if (clearTarget)
                 Clear(DiscardColor);
+#endif
         }
 
 		public RenderTargetBinding[] GetRenderTargets()
