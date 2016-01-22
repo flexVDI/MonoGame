@@ -449,6 +449,22 @@ namespace Microsoft.Xna.Framework
 			base.CursorUpdate (theEvent);
 		}
 
+		public override void MouseEntered (NSEvent theEvent)
+		{
+			if (!_game.IsMouseVisible)
+			{
+				NSCursor.Hide();
+			}
+		}
+
+		public override void MouseExited (NSEvent theEvent)
+		{
+			if (!_game.IsMouseVisible)
+			{
+				NSCursor.Unhide();
+			}
+		}
+
 		public override void ViewWillMoveToWindow (NSWindow newWindow)
 		{
 			//Console.WriteLine("View will move to window");
