@@ -325,8 +325,12 @@ namespace Microsoft.Xna.Framework.Graphics
 			}
 
 
-			GL.Clear(bufferMask);
-            GraphicsExtensions.CheckGLError();
+            var framebufferStatus = GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer);
+            if (framebufferStatus == FramebufferErrorCode.FramebufferComplete)
+            {
+                GL.Clear(bufferMask);
+                GraphicsExtensions.CheckGLError();
+            }
            		
             // Restore the previous render state.
 		    ScissorRectangle = prevScissorRect;
