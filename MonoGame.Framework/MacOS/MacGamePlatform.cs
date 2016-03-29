@@ -67,7 +67,6 @@ non-infringement.
 #endregion License
 
 using System;
-using System.Drawing;
 using System.IO;
 
 #if PLATFORM_MACOS_LEGACY
@@ -448,8 +447,7 @@ namespace Microsoft.Xna.Framework
             _mainWindow.SetFrame(frame, true);
 
             _gameWindow.Bounds = content;
-            var nativeSize = content.Size.ToSize();
-            _gameWindow.Size = new Size((int)nativeSize.Width, (int)nativeSize.Height);
+            _gameWindow.Size = content.Size.ToSize();
 
             // Now we set our Presentation Parameters
             var device = (GraphicsDevice)graphicsDeviceManager.GraphicsDevice;

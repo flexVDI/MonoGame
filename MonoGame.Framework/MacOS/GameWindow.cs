@@ -75,7 +75,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 namespace Microsoft.Xna.Framework
 {
 	[CLSCompliant(false)]
-	public class GameWindow : MonoMacGameView
+	public class GameWindow : MacGameView
 	{
 		//private readonly Rectangle clientBounds;
 		private Rectangle clientBounds;
@@ -731,7 +731,7 @@ namespace Microsoft.Xna.Framework
 		private void UpdateMousePosition (PointF location)
 		{
 			MouseState.X = (int)location.X;
-			MouseState.Y = (int)(ClientBounds.Height - location.Y);			
+			MouseState.Y = (int)(Bounds.Height - location.Y);			
 		}
 
 		internal void SetSupportedOrientations(DisplayOrientation orientations)
