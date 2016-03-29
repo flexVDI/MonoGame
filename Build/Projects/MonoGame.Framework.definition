@@ -1136,6 +1136,24 @@
     <Compile Include="MacOS\KeyUtil.cs">
       <Platforms>MacOS</Platforms>
     </Compile>
+    <Compile Include="MacOS\IGameWindow.cs">
+      <Platforms>MacOS</Platforms>
+    </Compile>
+    <Compile Include="MacOS\INativeWindow.cs">
+      <Platforms>MacOS</Platforms>
+    </Compile>
+    <Compile Include="MacOS\FrameEventArgs.cs">
+      <Platforms>MacOS</Platforms>
+    </Compile>
+    <Compile Include="MacOS\MacGameView.cs">
+      <Platforms>MacOS</Platforms>
+    </Compile>
+    <Compile Include="MacOS\WindowBorder.cs">
+      <Platforms>MacOS</Platforms>
+    </Compile>
+    <Compile Include="MacOS\WindowState.cs">
+      <Platforms>MacOS</Platforms>
+    </Compile>
     <Compile Include="MacOS\MacGameNSWindow.cs">
       <Platforms>MacOS</Platforms>
     </Compile>
