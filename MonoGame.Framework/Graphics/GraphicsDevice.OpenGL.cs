@@ -227,11 +227,15 @@ namespace Microsoft.Xna.Framework.Graphics
             _programCache.Clear();
             _shaderProgram = null;
 
+            #if MONOMAC
+            // On latest OpenTK, FrameBufferObject is not ARB not EXT
+            this.framebufferHelper = new FramebufferHelper(this);
+            #else
             if (GraphicsCapabilities.SupportsFramebufferObjectARB)
             {
                 this.framebufferHelper = new FramebufferHelper(this);
             }
-            #if !(GLES || MONOMAC)
+            #if !GLES
             else if (GraphicsCapabilities.SupportsFramebufferObjectEXT)
             {
                 this.framebufferHelper = new FramebufferHelperEXT(this);
@@ -243,6 +247,7 @@ namespace Microsoft.Xna.Framework.Graphics
                     "MonoGame requires either ARB_framebuffer_object or EXT_framebuffer_object." +
                     "Try updating your graphics drivers.");
             }
+            #endif
 
             // Force reseting states
             this.BlendState.PlatformApplyState(this, true);
