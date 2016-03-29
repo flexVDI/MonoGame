@@ -332,6 +332,9 @@ namespace Microsoft.Xna.Framework
             {
                 _wasResizeable = AllowUserResizing;
 
+                // On recent OSX, this way of changing its props kills the native window.
+                #if BROKEN
+
                 // I will leave this here just in case someone can figure out
                 // how to do a full screen with this and still get Alt + Tab to
                 // friggin work.
@@ -356,6 +359,7 @@ namespace Microsoft.Xna.Framework
                 //        with Synchronous mode, so disabling this for now.
                 //        Hopefully this does not cause excessive havoc.
                 //_mainWindow.MakeKeyAndOrderFront(Window);
+                #endif
                 ResetWindowBounds();
                 _mainWindow.HidesOnDeactivate = false;
                 _gameWindow.MouseState.LeftButton = ButtonState.Released;
