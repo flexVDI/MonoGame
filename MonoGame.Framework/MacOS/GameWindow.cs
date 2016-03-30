@@ -417,9 +417,15 @@ namespace Microsoft.Xna.Framework
 			set
             {
                 if (value)
+                {
 					Window.StyleMask |= NSWindowStyle.Resizable;
+					Window.CollectionBehavior = NSWindowCollectionBehavior.FullScreenPrimary;
+                }
                 else
+                {
                     Window.StyleMask &= ~NSWindowStyle.Resizable;
+                    Window.CollectionBehavior = NSWindowCollectionBehavior.Default;
+                }
 
 				Window.StandardWindowButton(NSWindowButton.ZoomButton).Enabled = value;
 			}
