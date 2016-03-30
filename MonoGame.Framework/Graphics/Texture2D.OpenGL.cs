@@ -573,9 +573,11 @@ namespace Microsoft.Xna.Framework.Graphics
 					data[i + 2] = temp;
 				}
 				
+#if !MONOMAC
 				bitmap = new Bitmap(width, height, width * 4, System.Drawing.Imaging.PixelFormat.Format32bppArgb, handle.Value.AddrOfPinnedObject());
 				
 				bitmap.Save(stream, format);
+#endif
 			} 
 			finally 
 			{
